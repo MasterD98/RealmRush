@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 6275944719540265503}
-  TargetEnemy: {fileID: 0}
+  attackRange: 30
 --- !u!1 &6275944720293770758
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ PrefabInstance:
     - target: {fileID: 4775954914597079124, guid: da39a95ac3e2c6b46abd2d06b695bbcc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 4775954914597079124, guid: da39a95ac3e2c6b46abd2d06b695bbcc,
         type: 3}
@@ -272,6 +272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775954914597079127, guid: da39a95ac3e2c6b46abd2d06b695bbcc,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da39a95ac3e2c6b46abd2d06b695bbcc, type: 3}
