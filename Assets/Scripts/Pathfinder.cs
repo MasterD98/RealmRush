@@ -83,13 +83,21 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    public List<Waypoint> GetWaypointPath()
+    public List<Waypoint> GetPath()
+    {
+        if (path.Count<=0)
+        {
+            CaclulatePath();
+        }
+        return path;
+    }
+
+    private void CaclulatePath()
     {
         LoadBlocks();
         SetStartEndWaypontColors();
         BreathFirstSearch();
         CreatePath();
-        return path;
     }
 
     // Update is called once per frame
