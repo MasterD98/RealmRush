@@ -14,6 +14,11 @@ public class Waypoint : MonoBehaviour
     {
         
     }
+
+    private void OnMouseOver()
+    {
+        print(gameObject);
+    }
     public Vector2Int GetGridPos() {
         gridPos=new Vector2Int(
         Mathf.RoundToInt(transform.position.x / gridsize),
@@ -21,23 +26,10 @@ public class Waypoint : MonoBehaviour
         );
         return gridPos;
     }
-    public void SetWayPointColor(Color color) {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
-    }
 
     private void Update()
     {
-        SetExploredWaypointColor();
+        
     }
-
-    private void SetExploredWaypointColor()
-    {
-        if (isExplored)
-        {
-            SetWayPointColor(exploredColor);
-        }
-    }
-
     public int GetGridSize() { return gridsize; }
 }

@@ -61,14 +61,6 @@ public class Pathfinder : MonoBehaviour
             queue.Enqueue(neighbour);
         }
     }
-
-    private void SetStartEndWaypontColors()
-    {
-        startWaypoint.SetWayPointColor(Color.green);
-        endWaypoint.SetWayPointColor(Color.red);
-    }
-
-
     private void LoadBlocks()
     {
         Waypoint[] waypoints = FindObjectsOfType<Waypoint>();
@@ -95,7 +87,6 @@ public class Pathfinder : MonoBehaviour
     private void CaclulatePath()
     {
         LoadBlocks();
-        SetStartEndWaypontColors();
         BreathFirstSearch();
         CreatePath();
     }
