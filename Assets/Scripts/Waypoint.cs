@@ -5,12 +5,11 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     public Waypoint exploredFrom;
-    [SerializeField] Color exploredColor=Color.blue;
     private const int gridsize = 10;
     private Vector2Int gridPos;
     public bool isExplored = false;
     public bool isPlaceble = true;
-    [SerializeField] Tower towerPrefab;
+    
 
     private void Start()
     {
@@ -22,8 +21,7 @@ public class Waypoint : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             if (isPlaceble)
             {
-                Instantiate(towerPrefab,new Vector3(transform.position.x,10f,transform.position.z),Quaternion.identity);
-                isPlaceble = false;
+                FindObjectOfType<TowerFactory>().AddTower(this);
             }else {
                 print("can't place hear");
             }

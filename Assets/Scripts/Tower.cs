@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {   //parameters
     [SerializeField] Transform objectToPan;
+    public Waypoint baseWaypoint;
     
     [SerializeField] float attackRange=30f;
     //state 

@@ -19,6 +19,7 @@ public class EnemyDamage : MonoBehaviour
     {
         ParticleSystem vfx = Instantiate(deathParticlesPrefab,transform.position,Quaternion.identity);
         vfx.Play();
+        Destroy(vfx.gameObject, vfx.main.duration);
         Destroy(gameObject);
     }
 
@@ -26,6 +27,13 @@ public class EnemyDamage : MonoBehaviour
     {
         HitPoints--;
         hitParticlesPrefab.Play();
+    }
+
+    public void SelfDestruct() {
+        ParticleSystem vfx = Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
+        vfx.Play();
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
