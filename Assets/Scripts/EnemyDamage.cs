@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] int HitPoints=10;
+    [SerializeField] ParticleSystem hitParticlesPrefab;
+    [SerializeField] ParticleSystem deathParticlesPrefab;
 
     void OnParticleCollision(GameObject other)
     {
@@ -15,12 +17,15 @@ public class EnemyDamage : MonoBehaviour
 
     private void KillEnemy()
     {
+        ParticleSystem vfx = Instantiate(deathParticlesPrefab,transform.position,Quaternion.identity);
+        vfx.Play();
         Destroy(gameObject);
     }
 
     private void ProcessHit()
     {
         HitPoints--;
+        hitParticlesPrefab.Play();
     }
 
     // Update is called once per frame
