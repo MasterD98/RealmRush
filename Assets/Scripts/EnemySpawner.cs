@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator repeatedlySpawnEnemies(float secondsBetweenSpawns)
     {
         while (true) {
-            Instantiate(enemyPrefab, new Vector3(-10, 10, 0), Quaternion.Euler(0,90,0));
+            Instantiate(enemyPrefab, new Vector3(-10, 15, 0), Quaternion.Euler(0,0,0));
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
     }
