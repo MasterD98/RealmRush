@@ -9,6 +9,8 @@ public class Waypoint : MonoBehaviour
     private const int gridsize = 10;
     private Vector2Int gridPos;
     public bool isExplored = false;
+    public bool isPlaceble = true;
+    [SerializeField] Tower towerPrefab;
 
     private void Start()
     {
@@ -17,7 +19,16 @@ public class Waypoint : MonoBehaviour
 
     private void OnMouseOver()
     {
-        print(gameObject);
+        if (Input.GetMouseButtonDown(0)) {
+            if (isPlaceble)
+            {
+                Instantiate(towerPrefab,new Vector3(transform.position.x,10f,transform.position.z),Quaternion.identity);
+                isPlaceble = false;
+            }else {
+                print("can't place hear");
+            }
+        }
+        
     }
     public Vector2Int GetGridPos() {
         gridPos=new Vector2Int(

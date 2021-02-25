@@ -15,12 +15,21 @@ public class Pathfinder : MonoBehaviour
     private List<Waypoint> path = new List<Waypoint>();
     private void CreatePath()
     {
-        Waypoint previous=endWaypoint;
-        while (previous != null) {
-            path.Add(previous);
+        SetAsPath(endWaypoint);
+        Waypoint previous = endWaypoint.exploredFrom;
+        while (previous != startWaypoint)
+        {
+            SetAsPath(previous);
             previous = previous.exploredFrom;
         }
+        SetAsPath(startWaypoint);
         path.Reverse();
+    }
+
+    private void SetAsPath(Waypoint waypoint)
+    {
+        path.Add(waypoint);
+        waypoint.isPlaceble = false;
     }
 
     private void BreathFirstSearch()
