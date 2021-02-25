@@ -85,7 +85,7 @@ public class Pathfinder : MonoBehaviour
 
     public List<Waypoint> GetPath()
     {
-        if (path.Count<=0)
+        if (path.Count==0)
         {
             CaclulatePath();
         }
