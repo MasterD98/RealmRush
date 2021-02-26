@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerBaseHealth : MonoBehaviour
@@ -13,6 +14,10 @@ public class PlayerBaseHealth : MonoBehaviour
     {
         baseHealth -= damagePerEnemy;
         health.text = baseHealth.ToString();
+        if (baseHealth == 0) { 
+            //TODO manage Scenes
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         GetComponent<AudioSource>().PlayOneShot(enemyReachBaseSFX);
     }
 
